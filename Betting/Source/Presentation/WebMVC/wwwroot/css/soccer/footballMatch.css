@@ -1,0 +1,111 @@
+﻿.main-lates-matches .item {
+    padding: 15px 30px 15px 30px;
+    border-bottom: 1px solid #f7f7f7;
+    display: block;
+    background: #fff;
+    box-sizing: border-box;
+}
+    .main-lates-matches .item:hover {
+        border-bottom: 1px solid #fc0;
+        transition: all .5s;
+    }
+    .main-lates-matches .item:last-child {
+        border-bottom: none;
+    }
+    .main-lates-matches .item .championship {
+        padding-bottom: 4px;
+        clear: both;
+        font-size: 10px;
+        color: #999;
+        line-height: normal;
+        font-family: Montserrat, sans-serif;
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    .main-lates-matches .item .teams-wrap {
+        width: 100%;
+        display: inline-block;
+        font-size: 0;
+    }
+        .main-lates-matches .item .teams-wrap > * {
+            vertical-align: middle;
+        }
+    .main-lates-matches .item .team {
+        width: 40%;
+        display: inline-block;
+        font-size: 12px;
+        font-family: Montserrat, sans-serif;
+        text-transform: uppercase;
+        color: #141414;
+    }
+        .main-lates-matches .item .team img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            object-fit: contain;
+        }
+        .main-lates-matches .item .team span {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+        }
+    .main-lates-matches .item .team1 span {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+    }
+    .main-lates-matches .item .team1 {
+        width: 40%;
+        display: inline-block;
+        font-size: 12px;
+        font-family: Montserrat, sans-serif;
+        text-transform: uppercase;
+        color: #141414;
+        text-align: right;
+    }
+        .main-lates-matches .item .team1 img {
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            object-fit: contain;
+        }
+    .main-lates-matches .item .score {
+        width: 20%;
+        display: inline-block;
+        text-align: center;
+    }
+        .main-lates-matches .item .score span {
+            min-width: 50px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            display: inline-block;
+            background: #141414;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 30px;
+            border-radius: 10px;
+        }
+    .main-lates-matches .item .game-result {
+        font-size: 10px;
+        color: #999;
+        line-height: normal;
+        font-family: Montserrat, sans-serif;
+        display: block;
+        text-transform: uppercase;
+        text-align: center;
+    }
+@media (max-width:650px) {
+    .main-lates-matches .item .score, .main-lates-matches .item .team, .main-lates-matches .item .team1 {
+        width: 100%
+    }
+        .main-lates-matches .item .team span, .main-lates-matches .item .team1 span {
+            width: 100%;
+            text-align: center;
+        }
+        .main-lates-matches .item .team img, .main-lates-matches .item .team1 img {
+            display: block;
+            margin: 0 auto;
+        }
+}

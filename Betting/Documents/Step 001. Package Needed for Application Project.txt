@@ -1,0 +1,3 @@
+Install the required packages on the Application layer.
+	
+Install-Package Microsoft.EntityFrameworkCore

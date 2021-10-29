@@ -1,0 +1,4 @@
+https://nishanc.medium.com/clean-architecture-net-core-part-2-implementation-7376896390c5
+
+add-migration "Initial" -Context IdentityContext
+update-database -Context IdentityContext

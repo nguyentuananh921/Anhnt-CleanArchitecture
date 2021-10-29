@@ -1,0 +1,19 @@
+﻿.blue {
+    color:blue;
+}
+.red {
+    color:red;
+}
+h1 {
+    color: yellow;
+}
+.box {
+    height:100px;
+    width:100px;
+    padding:10px;
+    margin:50px;
+    border-style:solid;
+    border-color:black;
+    background-color:red;
+    
+}

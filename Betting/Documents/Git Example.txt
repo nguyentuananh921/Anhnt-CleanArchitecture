@@ -1,0 +1,12 @@
+https://github.com/Farschidus/Tournamentus-MVC.git
+
+https://github.com/ezraroi/Mundialito.git
+
+https://github.com/andriwandres/BettingGame.git
+
+https://bitbucket.org/nguyentuananh921/wc2018final/src/master/
+
+https://github.com/kalintsenkov/BettingSystem.git
+https://github.com/aguacongas/football-championship.git
+
+https://github.com/ezzylearning/SignalRLiveSportsDashboardDemo.git

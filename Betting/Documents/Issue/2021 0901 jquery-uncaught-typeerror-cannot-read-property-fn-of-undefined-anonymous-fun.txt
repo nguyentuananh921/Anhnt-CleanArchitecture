@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/10807430/jquery-uncaught-typeerror-cannot-read-property-fn-of-undefined-anonymous-fun

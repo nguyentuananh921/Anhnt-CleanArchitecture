@@ -1,0 +1,73 @@
+﻿@model IEnumerable<MatchViewModel>
+@{
+    ViewData["Title"] = "All Matches";
+}
+
+<h3>View All Matches</h3>
+@foreach (var item in Model)
+{
+    string hflag = "/img/Team/120x80/" + @item.HTeamCode + ".gif";
+    string gflag = "/img/Team/120x80/" + @item.GTeamCode + ".gif";
+    string seasonflag = "/img/Season/" + @item.SeasonId + ".png";
+    <div class="row fp-match-overview_matchRow justify-content-between d-flex">
+        <div class="d-none d-md-inline col fp-match-overview_tournamentDetails">
+            <ul class="fp-match-overview_matchInfoList">
+                <li class="fp-match-overview_matchInfoListDate">
+                    @String.Format("{0:dd/MM/yyyy}", item.DateMatch)
+                </li>
+                <li>
+                    @item.Stadium
+                </li>
+                <li>
+                    @item.SubStage
+                </li>
+            </ul>
+        </div>
+        <h4 class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
+            <a asp-action="ViewMatchBySeason" asp-route-seasonId="@item.SeasonId">@item.SeasonName</a>
+        </h4>
+        <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
+            <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
+                <a asp-action="ViewMatchBySeason" asp-route-seasonId="@item.SeasonId">
+                    <img alt="" aria-hidden="true" role="presentation" src="@seasonflag" asp-append-version="true" />
+                </a>
+            </div>
+        </div>
+        <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
+            <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.HTeam">@item.HTeamCode</a>
+        </h4>
+        <h4 class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
+            <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.HTeam">@item.HTeam</a>
+        </h4>
+        <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
+            <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
+                <img alt="" aria-hidden="true" role="presentation" src="@hflag" asp-append-version="true" />
+            </div>
+            <div class="ff-match-results_concludedMatchResults ff-match-results_results ff-mx--md-24 ff-mx-lg-32 ff-mx-8 d-flex justify-content-center align-items-center">
+                <h4 class="h4-article">
+                    <a asp-action="ViewHistory" asp-route-hteam="@item.HTeam" asp-route-gteam="@item.GTeam">
+                        @item.HGoal-@item.GGoal
+                    </a>
+                </h4>
+            </div>
+            <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
+                <img alt="" aria-hidden="true" role="presentation" src="@gflag" asp-append-version="true" />
+            </div>
+        </div>
+        <h4 class="d-inline d-md-none col fp-match-overview_awayTeam">
+            <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.GTeam">@item.GTeamCode</a>
+        </h4>
+        <h4 class="d-none d-md-inline col fp-match-overview_awayTeam h4-article">
+            <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.GTeam">@item.GTeam</a>
+        </h4>
+        @if (item.WinNote != "")
+        {
+            <div class="fp-match-overview_extraInfo">
+                <p>@item.WinNote</p>
+            </div>
+        }
+        else
+        {
+        }
+    </div>
+}

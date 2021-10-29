@@ -1,0 +1,49 @@
+﻿@model IEnumerable<TaskItem>
+@{
+    ViewData["Title"] = "Tasks";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <a asp-controller="TaskItem" asp-action="Create" class="btn btn-success">Create New Task</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Task Name</td>
+                    <td>Is Task Completed?</td>
+                    @*<td>Task Created</td>*@
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count() > 0)
+                {
+                    @foreach (var task in Model)
+                    {
+                        <tr>
+                            <td>@task.TaskName</td>
+                            <td>@task.IsCompleted</td>
+                            @*<td>@task.DateCreated.ToShortDateString()</td>*@
+                        <td class="text-center">
+                            <a asp-controller="TaskItem" asp-action="Edit" asp-route-id="@task.Id" class="btn btn-primary"> Edit</a>
+                            <a asp-controller="TaskItem" asp-action="Delete" asp-route-id="@task.Id" class="btn btn-danger"> Delete</a>                          
+                        </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            No Records Found.
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

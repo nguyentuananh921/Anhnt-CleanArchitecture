@@ -1,0 +1,88 @@
+﻿@*https://codewithmukesh.com/blog/permission-based-authorization-in-aspnet-core/*@
+@using Microsoft.AspNetCore.Identity;
+@using Infrastructure.Identity.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "User Manager";
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>User List</h1>
+<br />
+<table class="table table-striped" id="userTable">
+    <thead>
+        <tr>
+            <th>
+                User
+            </th>
+            <th>
+                Full Name
+            </th>
+            <th>
+                Email
+            </th>
+
+            <th style="width:10%">
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            
+        <tr>
+            <td>
+                <div class="row">
+                    <div class="col-sm">
+                        <a>
+                            @user.UserName
+                        </a>
+                        <br>
+                        <small>
+                            @user.Id
+                        </small>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <a>
+                    @(user.FirstName+" "+user.LastName)
+                </a>
+            </td>
+            <td>
+                <a>
+                    @user.Email
+                </a>
+            </td>
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="navbaruserroles" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbaruserroles">
+                        <li><a class="dropdown-item active" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Separated link</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                    <div class="dropdown-menu shadow animated--grow-in">
+                        <a style='margin-right:16px' asp-controller="userroles" asp-action="Index" asp-route-userId="@user.Id" class="dropdown-item">
+                            <i class="fas fa-wrench"></i> Manage Roles
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
