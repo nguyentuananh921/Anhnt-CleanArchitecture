@@ -61,7 +61,7 @@ namespace Infrastructure.Repositories
             {
                 MatchesDetail matchesDetail = new MatchesDetail();
                 #region ManualMapping
-                matchesDetail.MatchId = item.MatchId;
+                    matchesDetail.MatchId = item.MatchId;
                     matchesDetail.MatchNumber = item.MatchNumber;
                     matchesDetail.DateMatch = item.DateMatch;
                     matchesDetail.TimeMatch = item.TimeMatch;
@@ -87,7 +87,6 @@ namespace Infrastructure.Repositories
             #endregion
             
             return retList;
-
         }
         public IEnumerable<MatchesDetailByTeamName> GetMatchDetailByTeamNameAsync(string teamname)
         {
@@ -285,6 +284,48 @@ namespace Infrastructure.Repositories
             }
             #endregion
             return retList;
+        }
+
+        public MatchesDetailById GetMatchDetailByMatchStrId(string matchid)
+        {
+            #region TryOther way
+            var matchQuery = (from match in _context.Matches
+                              join team1 in _context.Teams on match.HTeam equals team1.TeamName
+                              join team2 in _context.Teams on match.GTeam equals team2.TeamName
+                              join season in _context.Seasons on match.SeasonId equals season.SeasonId
+                              where (match.MatchId == matchid)
+                              orderby match.MatchYear descending, match.MatchNumber
+                              select new
+                              {
+                                  #region selectResult
+                                  match.MatchId,
+                                  match.MatchNumber,
+                                  match.DateMatch,
+                                  match.TimeMatch,
+                                  match.MatchYear,
+                                  match.SeasonId,
+                                  season.SeasonName,
+                                  match.Round,
+                                  match.Stage,
+                                  match.SubStage,
+                                  match.HTeam,
+                                  HTeamCode = team1.TeamCode,
+                                  match.HGoal,
+                                  match.GGoal,
+                                  match.GTeam,
+                                  GTeamCode = team2.TeamCode,
+                                  match.WinNote,
+                                  match.Stadium,
+                                  match.Referee,
+                                  match.Visistors
+                                  #endregion
+                              });
+            #region ManualMapping
+            MatchesDetailById matchesDetail = matchQuery.Cast<MatchesDetailById>().FirstOrDefault();            
+            #endregion
+            
+            #endregion
+            return matchesDetail;
         }
     }
 }

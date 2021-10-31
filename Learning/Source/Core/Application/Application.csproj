@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\TodoItems\**" />
+    <EmbeddedResource Remove="Features\TodoItems\**" />
+    <None Remove="Features\TodoItems\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="10.3.3" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.3" />
     <PackageReference Include="MediatR" Version="9.0.0" />
@@ -20,8 +26,6 @@
   <ItemGroup>
     <Folder Include="Features\Cars\Commands\" />
     <Folder Include="Features\Employees\Commands\" />
-    <Folder Include="Features\TodoItems\Commands\" />
-    <Folder Include="Features\TodoItems\Queries\" />
     <Folder Include="Features\TodoLists\Commands\" />
   </ItemGroup>
 

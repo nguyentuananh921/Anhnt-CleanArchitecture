@@ -1,4 +1,5 @@
-﻿using Application.Features.Matches.Queries;
+﻿using Application.Features.Matches.Commands;
+using Application.Features.Matches.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -98,7 +99,6 @@ namespace WebMVC.Controllers
 
             return View(resList);
         }
-
         public async Task<IActionResult> ViewMatchBySeason(string seasonId)
         {
             var matchQuery = new GetMatchesDetailBySeason(seasonId);
@@ -168,8 +168,39 @@ namespace WebMVC.Controllers
             }
 
             return View(resList);
-        }
+        }       
+        // GET: Update/Edit/stringmatchid
+        public async Task<IActionResult> UpdateMatchScore(string matchId)
+        {
+            var matchQuery = new GetMatchesDetailById(matchId);
 
+            var result = await _mediator.Send(matchQuery);            
+            MatchViewModel matchesvm = new MatchViewModel();
+            #region ManualMapping
+            matchesvm.MatchId = result.MatchId;
+            matchesvm.MatchNumber = result.MatchNumber;
+            matchesvm.DateMatch = result.DateMatch;
+            matchesvm.TimeMatch = result.TimeMatch;
+            matchesvm.MatchYear = result.MatchYear;
+            matchesvm.SeasonId = result.SeasonId;
+            matchesvm.SeasonName = result.SeasonName;
+            matchesvm.Round = result.Round;
+            matchesvm.Stage = result.Stage;
+            matchesvm.SubStage = result.SubStage;
+            matchesvm.HTeam = result.HTeam;
+            matchesvm.HGoal = result.HGoal;
+            matchesvm.HTeamCode = result.HTeamCode;
+            matchesvm.GGoal = result.GGoal;
+            matchesvm.GTeam = result.GTeam;
+            matchesvm.GTeamCode = result.GTeamCode;
+            matchesvm.WinNote = result.WinNote;
+            matchesvm.Stadium = result.Stadium;
+            matchesvm.Referee = result.Referee;
+            matchesvm.Visistors = result.Visistors;
+            #endregion           
+            
+            return View(matchesvm);
+        }
         public IActionResult TestView()
         {
             return View();

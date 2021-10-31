@@ -85,9 +85,22 @@ namespace Infrastructure.Repositories.Base
             else
             {
                 return await _context.Set<TEntity>().FindAsync(id);
+            }            
+        }
+        public virtual async Task<TEntity> GetByStrIdAsync(string strid)
+        {
+            if (strid == null)
+            {
+                return null;
             }
-
-            
+            if (await _context.Set<TEntity>().FindAsync(strid) == null)
+            {
+                return null;
+            }
+            else
+            {
+                return await _context.Set<TEntity>().FindAsync(strid);
+            }
         }
         public async Task<TEntity> AddAsync(TEntity entity)
         {
@@ -111,7 +124,7 @@ namespace Infrastructure.Repositories.Base
         public async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await _context.Set<TEntity>().ToListAsync();
-        }
+        }       
 
         #endregion
     }

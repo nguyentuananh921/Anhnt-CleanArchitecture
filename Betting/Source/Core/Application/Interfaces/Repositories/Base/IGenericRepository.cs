@@ -12,7 +12,7 @@ namespace Application.Interfaces.Repositories.Base
     /// <typeparam name="T"></typeparam>    
     public interface IGenericRepository<TEntity> where TEntity : class
     {
-        TEntity GetById(int id);
+        TEntity GetById(int id);        
         IEnumerable<TEntity> GetAll();
         //IEnumerable<T> Find(Expression<Func<T, bool>> expression);
         void Add(TEntity entity);
@@ -21,6 +21,7 @@ namespace Application.Interfaces.Repositories.Base
         void RemoveRange(IEnumerable<TEntity> entities);
         //No RemveRangeAsync method
         Task<TEntity> GetByIdAsync(int? id);
+        Task<TEntity> GetByStrIdAsync(string strid);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<TEntity> AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entity);

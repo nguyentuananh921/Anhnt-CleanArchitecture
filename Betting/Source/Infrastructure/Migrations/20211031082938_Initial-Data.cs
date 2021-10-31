@@ -141,7 +141,7 @@ namespace Infrastructure.Migrations
                     WinNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Stadium = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Referee = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Visistors = table.Column<long>(type: "bigint", nullable: false),
+                    Visistors = table.Column<long>(type: "bigint", nullable: true),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

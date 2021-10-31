@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211029013825_Initial-Data")]
+    [Migration("20211031082938_Initial-Data")]
     partial class InitialData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,7 +125,7 @@ namespace Infrastructure.Migrations
                     b.Property<TimeSpan>("TimeMatch")
                         .HasColumnType("time");
 
-                    b.Property<long>("Visistors")
+                    b.Property<long?>("Visistors")
                         .HasColumnType("bigint");
 
                     b.Property<string>("WinNote")
