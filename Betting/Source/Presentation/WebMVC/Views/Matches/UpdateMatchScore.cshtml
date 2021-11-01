@@ -2,12 +2,92 @@
 
 @{
     ViewData["Title"] = "Update Specific Match";
+    string seasonflag = "/img/Season/" + Model.SeasonId + ".png";
+    string hflag = "/img/Team/120x80/" + Model.HTeamCode + ".gif";
+    string gflag = "/img/Team/120x80/" + Model.GTeamCode + ".gif";
 }
 
 <h1>Update Match Score</h1>
 
 <h4>Specific Match View</h4>
 <hr />
+<div class="fp-result-board_resultBoard">
+    <div class="fp-result-board_resultBoardContainer">
+        <form asp-action="UpdateMatchScore">
+            <a asp-action="ViewMatchBySeason" asp-route-seasonId="@Model.SeasonId">
+                <div class="ff-mx-24 fp-result-board_hero__logo__container">
+                    <div class="row fp-result-board_hero__logo">
+                        <div class="col">
+                            <div class="ff-image_figureImage">
+                                <img height="150" width="150" src="@seasonflag" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <div class="fp-result-board_resultRowOuter">
+                <div class="fp-result-board_resultRow">
+                    <div class="fp-result-board_homeTeam">
+                        <h3 class="d-inline d-md-none fp-result-board_teamName ff-my-0 text ">
+                            @*text-align-left*@
+                            @Model.HTeamCode
+                        </h3>
+                        <h3 class="d-none d-md-inline fp-result-board_teamName ff-mr-16 ff-mr-lg-24 ff-mr-lx-32 ff-my-0">
+                            @Model.HTeam
+                        </h3>
+                    <div class="ff-mr-md-24 ff-my-8">
+                        <div class="ff-image_figureImage fp-result-board_flagBorder">
+
+                            <img class="ff-image_img" height="153" width="256" src="@hflag" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="fp-result-board_matchResult">
+                    <div class="fp-result-board_timeRow">
+                        <div>
+                            FULL TIME
+                        </div>
+                    </div>
+                    <div class="fp-result-board_result">
+                        <div class="fp-result-board_score__Fac-t">
+                            <div class="form-group">                                
+                                <input asp-for="HGoal" class="form-control" />
+                                <span asp-validation-for="HGoal" class="text-danger"></span>
+                            </div>                            
+                        </div>
+                        <div class="fp-result-board_hyphen">-</div>
+                        <div class="fp-result-board_score__Fac-t">
+                            <div class="form-group">                                
+                                <input asp-for="GGoal" class="form-control" />
+                                <span asp-validation-for="GGoal" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fp-result-board_awayTeam">
+                    <div class="ff-mr-md-24 ff-my-8">
+                        <div class="ff-image_figureImage fp-result-board_flagBorder">
+
+                            <img class="ff-image_img" height="153" width="256" src="@gflag" />
+
+                        </div>
+                    </div>
+                    <h3 class="d-inline d-md-none fp-result-board_teamName ff-my-0 text ">
+                        @*text-align-left*@
+                        @Model.GTeamCode
+                    </h3>
+                    <h3 class="d-none d-md-inline fp-result-board_teamName ff-mr-16 ff-mr-lg-24 ff-mr-lx-32 ff-my-0">
+                        @Model.GTeam
+                    </h3>
+
+                </div>
+            </div>
+        </div>
+        </form>      
+       
+    </div>
+</div>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="UpdateMatchScore">

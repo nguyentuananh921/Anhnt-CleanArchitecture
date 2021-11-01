@@ -15,6 +15,6 @@ namespace Application.Interfaces.Repositories
         IEnumerable<MatchesDetailByTeamName> GetMatchDetailByTeamNameAsync(string teamname);
         IEnumerable<MatchesDetailBySeason> GetMatchDetailBySeasonAsync(string seasonname);
         IEnumerable<MatchesDetailTwoTeam> GetHistoryMatchTwoTeamAsync(string hTeam, string gTeam);
-        MatchesDetailById GetMatchDetailByMatchStrId(string matchid); //This match contain more information than Match entity
+        MatchesDetailByStrId GetMatchDetailByMatchStrId(string matchid); //This match contain more information than Match entity
     }
 }

@@ -14,11 +14,11 @@ namespace Application.Features.Matches.Queries
     /// Class Query or Command
     /// All the data we need to execute
     /// </summary>
-    public class GetMatchesDetailById : IRequest<MatchesDetailById>
+    public class GetMatchesDetailByStrId : IRequest<MatchesDetailByStrId>
     {
         public string MatchId { get; }
 
-        public GetMatchesDetailById(string matchId)
+        public GetMatchesDetailByStrId(string matchId)
         {
             MatchId = matchId;
         }
@@ -29,23 +29,16 @@ namespace Application.Features.Matches.Queries
     /// The Handler all the Business Logic we need to execute and reponse Data
     /// </summary>
 
-    public class GetMatchesDetailByIdHandler : IRequestHandler<GetMatchesDetailById, MatchesDetailById>
+    public class GetMatchesDetailByIdHandler : IRequestHandler<GetMatchesDetailByStrId, MatchesDetailByStrId>
     {
         private readonly IMatchRepository _matchRepository;
 
         public GetMatchesDetailByIdHandler(IMatchRepository matchRepository)
         {
             _matchRepository = matchRepository;
-        }
+        }      
 
-        public async Task<IEnumerable<MatchesDetailByTeamName>> Handle(GetMatchesDetailByTeamName request, CancellationToken cancellationToken)
-        {
-            var matchlist = _matchRepository.GetMatchDetailByTeamNameAsync(request.teamName);
-            //ReUse Model from matchRepository
-            return matchlist;
-        }
-
-        public async Task<MatchesDetailById> Handle(GetMatchesDetailById request, CancellationToken cancellationToken)
+        public async Task<MatchesDetailByStrId> Handle(GetMatchesDetailByStrId request, CancellationToken cancellationToken)
         {
             var match = _matchRepository.GetMatchDetailByMatchStrId(request.MatchId);            
             return match;
@@ -54,7 +47,7 @@ namespace Application.Features.Matches.Queries
     #endregion
 
     #region Response
-    public class MatchesDetailById
+    public class MatchesDetailByStrId
     {
         public string MatchId { get; set; }
         public int MatchNumber { get; set; }

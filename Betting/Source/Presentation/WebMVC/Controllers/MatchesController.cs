@@ -170,36 +170,38 @@ namespace WebMVC.Controllers
             return View(resList);
         }       
         // GET: Update/Edit/stringmatchid
+        [HttpGet] 
         public async Task<IActionResult> UpdateMatchScore(string matchId)
         {
-            var matchQuery = new GetMatchesDetailById(matchId);
+            var matchQuery = new GetMatchesDetailByStrId(matchId);
 
-            var result = await _mediator.Send(matchQuery);            
+            var response = await _mediator.Send(matchQuery);
             MatchViewModel matchesvm = new MatchViewModel();
             #region ManualMapping
-            matchesvm.MatchId = result.MatchId;
-            matchesvm.MatchNumber = result.MatchNumber;
-            matchesvm.DateMatch = result.DateMatch;
-            matchesvm.TimeMatch = result.TimeMatch;
-            matchesvm.MatchYear = result.MatchYear;
-            matchesvm.SeasonId = result.SeasonId;
-            matchesvm.SeasonName = result.SeasonName;
-            matchesvm.Round = result.Round;
-            matchesvm.Stage = result.Stage;
-            matchesvm.SubStage = result.SubStage;
-            matchesvm.HTeam = result.HTeam;
-            matchesvm.HGoal = result.HGoal;
-            matchesvm.HTeamCode = result.HTeamCode;
-            matchesvm.GGoal = result.GGoal;
-            matchesvm.GTeam = result.GTeam;
-            matchesvm.GTeamCode = result.GTeamCode;
-            matchesvm.WinNote = result.WinNote;
-            matchesvm.Stadium = result.Stadium;
-            matchesvm.Referee = result.Referee;
-            matchesvm.Visistors = result.Visistors;
-            #endregion           
-            
+                matchesvm.MatchId = response.MatchId;
+                matchesvm.MatchNumber = response.MatchNumber;
+                matchesvm.DateMatch = response.DateMatch;
+                matchesvm.TimeMatch = response.TimeMatch;
+                matchesvm.MatchYear = response.MatchYear;
+                matchesvm.SeasonId = response.SeasonId;
+                matchesvm.SeasonName = response.SeasonName;
+                matchesvm.Round = response.Round;
+                matchesvm.Stage = response.Stage;
+                matchesvm.SubStage = response.SubStage;
+                matchesvm.HTeam = response.HTeam;
+                matchesvm.HGoal = response.HGoal;
+                matchesvm.HTeamCode = response.HTeamCode;
+                matchesvm.GGoal = response.GGoal;
+                matchesvm.GTeam = response.GTeam;
+                matchesvm.GTeamCode = response.GTeamCode;
+                matchesvm.WinNote = response.WinNote;
+                matchesvm.Stadium = response.Stadium;
+                matchesvm.Referee = response.Referee;
+                matchesvm.Visistors = response.Visistors;
+            #endregion         
+
             return View(matchesvm);
+            //return View();
         }
         public IActionResult TestView()
         {

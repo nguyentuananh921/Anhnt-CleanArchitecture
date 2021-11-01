@@ -134,21 +134,13 @@
     --theme-color-highlight: #19af5a;
     display: block !important
 }
-@media(min-width:1400px) {
-    .h4-article {
-        font-size: 20px;
-        font-size: 1.25rem
-    }
+
+.fp-tournament-matches-overview_matchesContainer {
+    background-color: var(--theme-brackets-background-color) !important;
+    width: 100%;
+    padding-bottom: 1.5rem
 }
-@media(min-width:0) {
-    .h4-article:before {
-        content: "";
-        display: block;
-        height: 0;
-        width: 0;
-        margin-top: calc((1 - 1.4) * .5em)
-    }
-}
+/*#region Define h4-article*/
 .h4-article {
     font-size: 16px;
     font-size: 1rem;
@@ -159,6 +151,26 @@
     margin-bottom: 1rem;
     text-transform: none
 }
+/*#region Define h4-article-media*/
+@media(min-width:1400px) {
+    .h4-article {
+        font-size: 20px;
+        font-size: 1.25rem
+    }
+}
+
+@media(min-width:0) {
+    .h4-article:before {
+        content: "";
+        display: block;
+        height: 0;
+        width: 0;
+        margin-top: calc((1 - 1.4) * .5em)
+    }
+}
+/*#endregion Define h4-article-media*/
+/*#endregion Define h4-article*/
+/*#region Define fp-match-overview_matchRow*/
 .fp-match-overview_matchRow {
     max-width: 100%;
     margin: 0;
@@ -170,37 +182,45 @@
     cursor: pointer;
     display: block;
 }
-    .fp-match-overview_matchRow:hover {
-        background-color: #e4e8f0;
-        border-bottom: 1px solid #fc0;
-        transition: all .5s;
-    }
 @media(max-width:991px) {
-    .fp-match-overview_matchRow .fp-match-overview_matchRow .fp-match-overview_centerItems, .fp-match-overview_matchRow .fp-match-overview_homeTeam, .fp-match-overview_matchRow .fp-match-overview_matchTime, .fp-match-overview_matchRow .fp-match-overview_tournamentDetails {
+    .fp-match-overview_matchRow .fp-match-overview_awayTeam, .fp-match-overview_matchRow .fp-match-overview_centerItems, .fp-match-overview_matchRow .fp-match-overview_homeTeam, .fp-match-overview_matchRow .fp-match-overview_matchTime, .fp-match-overview_matchRow .fp-match-overview_tournamentDetails {
         padding-right: 0;
         padding-left: 0
     }
 }
+
 @media(max-width:767px) {
     .fp-match-overview_matchRow .fp-match-overview_awayTeam, .fp-match-overview_matchRow .fp-match-overview_centerItems, .fp-match-overview_matchRow .fp-match-overview_homeTeam, .fp-match-overview_matchRow .fp-match-overview_matchTime, .fp-match-overview_matchRow .fp-match-overview_tournamentDetails {
         padding-right: inherit;
         padding-left: inherit
     }
 }
+
 .fp-match-overview_matchRow img {
     padding: 0 10px
 }
-.fp-match-overview_awayTeam, .fp-match-overview_homeTeam {
-    display: inline;
-    vertical-align: middle !important;
-    margin-bottom: 0 !important;
-    text-transform: uppercase
-}
+
+    .fp-match-overview_matchRow:hover {
+        background-color: #e4e8f0;
+        border-bottom: 1px solid #fc0;
+        transition: all .5s;
+    }
+    .fp-match-overview_matchRow img {
+        padding: 0 10px
+    }
+/*#endregion Define fp-match-overview_matchRow*/
 @media(max-width:991px) {
     .fp-match-overview_awayTeam, .fp-match-overview_homeTeam {
         flex: 1.5 0
     }
 }
+.fp-match-overview_awayTeam, .fp-match-overview_homeTeam {
+    display: flex inline;
+    vertical-align: middle !important;
+    margin-bottom: 0 !important;
+    text-transform: uppercase
+}
+/*#region fp-match-overview_homeTeam*/
 .fp-match-overview_homeTeam {
     text-align: right
 }
@@ -209,6 +229,8 @@
         text-align: right
     }
 }
+/*#endregion fp-match-overview_homeTeam*/
+/*#region fp-match-overview_awayTeam*/
 .fp-match-overview_awayTeam {
     text-align: left
 }
@@ -217,6 +239,7 @@
         text-align: left
     }
 }
+/*#endregion fp-match-overview_awayTeam*/
 .fp-match-overview_extraInfo {
     text-align: center
 }
@@ -225,10 +248,11 @@
     line-height: 1.25rem
 }
 .ff-match-results_concludedMatchResults {
-    color: var(--theme-match-result-text-color);
-    background-color: var(--theme-match-result-background-color);
+    color: #000; /* var(--theme-match-result-text-color) */
+    background-color: #e4e8f0; /* var(--theme-match-result-background-color);*/
     border-radius: 20px
 }
+/*#region ff-match-results_results*/
 .ff-match-results_results {
     display: inline-block;
     width: 45px;
@@ -239,6 +263,10 @@
     background-color: #e4e8f0;
     vertical-align: middle !important
 }
+    .ff-match-results_results > h4 {
+        vertical-align: middle !important;
+        margin-bottom: 0 !important
+    }
 @media(min-width:576px) {
     .ff-match-results_results {
         width: 45px;
@@ -263,23 +291,20 @@
         border-radius: 100px
     }
 }
-.ff-match-results_results > h4 {
-    vertical-align: middle !important;
-    margin-bottom: 0 !important
-}
+/*#endregion ff-match-results_results*/
+/*#region fp-match-overview_logo*/
 .fp-match-overview_logo {
     width: 32px;
-    display: inline;
+    display:flex inline;
     vertical-align: middle !important;
     position: relative
 }
-
+/*#region fp-match-overview_logo-media*/
 @media(min-width:768px) {
     .fp-match-overview_logo {
         width: 40px
     }
 }
-
 @media(min-width:992px) {
     .fp-match-overview_logo {
         width: 50px;
@@ -290,6 +315,9 @@
         padding: 0px
     }
 }
+/*#endregion fp-match-overview_logo-media*/
+/*#endregion fp-match-overview_logo*/
+/*#region fp-match-overview_nationalTeam*/
 .fp-match-overview_nationalTeam {
     border: 1px solid #e4e8f0 !important;
 }
@@ -301,6 +329,8 @@
         border: none;
         padding: 0px
     }
+/*#endregion fp-match-overview_nationalTeam*/
+/*#region fp-match-overview_matchInfoList*/
 .fp-match-overview_matchInfoList {
     margin: 0;
     padding: 0;
@@ -313,6 +343,442 @@
             font-family: Open Sans Bold;
             font-weight: 700
         }
+/*#endregion fp-match-overview_matchInfoList*/
+
+/*#region fp-result-board_resultBoard*/
+.fp-result-board_resultBoard {
+    background-color: var(--theme-match-result-board-background);
+    display: flex;
+    flex-direction: column;
+    color: var(--theme-match-result-board-text);
+    min-height: 233px;
+    justify-content: center;
+    position: relative
+}
+
+@media(min-width:1200px) {
+    .fp-result-board_resultBoard {
+        min-height: 365px
+    }
+}
+/*#endregion fp-result-board_resultBoard*/
+
+/*#region fp-result-board_resultBoardContainer*/
+.fp-result-board_resultBoardContainer {
+    height: 233px
+}
+
+@media(min-width:992px) {
+    .fp-result-board_resultBoardContainer {
+        height: 300px
+    }
+}
+
+@media(min-width:1200px) {
+    .fp-result-board_resultBoardContainer {
+        height: 365px
+    }
+}
+/*#endregion fp-result-board_resultBoardContainer*/
+
+/*#region fp-result-board_hero__logo__container*/
+.fp-result-board_hero__logo__container {
+    position: absolute;
+    top: 0;
+    left: 0
+}
+    .fp-result-board_hero__logo__container .fp-result-board_hero__logo {
+        align-content: center;
+        border-radius: 0 0 .375rem .375rem;
+        background: #fff;
+        width: 80px;
+        height: 80px
+    }
+@media(min-width:768px) {
+    .fp-result-board_hero__logo__container .fp-result-board_hero__logo {
+        border-radius: 0 0 .5rem .5rem;
+        width: 100px;
+        height: 100px
+    }
+}
+@media(min-width:992px) {
+    .fp-result-board_hero__logo__container .fp-result-board_hero__logo {
+        border-radius: 0 0 .75rem .75rem;
+        width: 120px;
+        height: 120px
+    }
+}
+/*#endregion */
+
+/*#region ff-image_figureImage*/
+.ff-image_img {
+    max-width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: 50% 50%;
+    object-position: 50% 50%
+}
+
+    .ff-image_img.ff-image_ffImage {
+        height: 100%
+    }
+.ff-image_figureImage, .ff-image_figureImage figure {
+    height: 100%;
+    width: 100%
+}
+
+    .ff-image_figureImage figure .ff-image_figcaption {
+        font-family: Open Sans Italic;
+        color: #505b73
+    }
+/*#endregion */
+.ff-background-image_ffBackgroundImage {
+    background-color: #a5acbb;
+    background-size: cover
+}
+
+    .ff-background-image_ffBackgroundImage:before {
+        display: block;
+        padding-top: var(--aspect-ratio);
+        content: ""
+    }
+
+/*#region fp-result-board_resultRowOuter*/
+.fp-result-board_resultRowOuter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 233px
+}
+
+@media(min-width:768px) {
+    .fp-result-board_resultRowOuter {
+        width: 100%
+    }
+}
+
+@media(min-width:992px) {
+    .fp-result-board_resultRowOuter {
+        height: 300px
+    }
+}
+
+@media(min-width:1200px) {
+    .fp-result-board_resultRowOuter {
+        height: 365px
+    }
+}
+/*#endregion */
+
+/*#region fp-result-board_resultRow*/
+.fp-result-board_resultRow {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 6rem;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 1rem
+}
+@media(max-width:767px) {
+    .fp-result-board_resultRow {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem
+    }
+}
+.fp-result-board_resultRow img {
+    max-height: 164px
+}
+@media(max-width:991px) {
+    .fp-result-board_resultRow img {
+        max-height: 6rem
+    }
+}
+@media(max-width:767px) {
+    .fp-result-board_resultRow img {
+        max-height: 3rem
+    }
+}
+/*#endregion */
+.fp-result-board_result {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+
+
+.fp-result-board_score__Fac-t {
+    margin-left: 16px;
+    margin-right: 16px;
+    font-size: 26.08px;
+    font-size: 1.63rem;
+    line-height: 1;
+    line-height: 100%;
+    font-family: Open Sans Condensed;
+    margin-bottom: 0;
+    text-transform: uppercase
+}
+
+@media(min-width:768px) {
+    .fp-result-board_score__Fac-t {
+        font-size: 51.952px;
+        font-size: 3.247rem
+    }
+}
+
+@media(min-width:992px) {
+    .fp-result-board_score__Fac-t {
+        font-size: 93.2px;
+        font-size: 5.825rem
+    }
+}
+
+@media(min-width:1200px) {
+    .fp-result-board_score__Fac-t {
+        margin-bottom: 1.5rem
+    }
+}
+
+.fp-result-board_hyphen {
+    text-align: center;
+    font-size: 26.08px;
+    font-size: 1.63rem;
+    line-height: 1.2;
+    line-height: 120%;
+    font-family: Open Sans Condensed;
+    margin-bottom: 0;
+    text-transform: uppercase
+}
+
+@media(min-width:768px) {
+    .fp-result-board_hyphen {
+        font-size: 51.952px;
+        font-size: 3.247rem
+    }
+}
+
+@media(min-width:1200px) {
+    .fp-result-board_hyphen {
+        font-size: 51.952px;
+        font-size: 3.247rem;
+        margin-bottom: 1.5rem
+    }
+}
+
+/*#region fp-result-board_homeTeam*/
+.fp-result-board_homeTeam {
+    display: flex;
+    flex: 1 1;
+    margin-left: auto;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
+    flex-wrap: 2;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    line-height: 120%;
+    font-family: Open Sans Condensed;
+    margin-bottom: 0;
+    text-transform: uppercase
+}
+
+@media(min-width:768px) {
+    .fp-result-board_homeTeam {
+        font-size: 32.432px;
+        font-size: 2.027rem
+    }
+}
+
+@media(min-width:992px) {
+    .fp-result-board_homeTeam {
+        font-size: 41.056px;
+        font-size: 2.566rem
+    }
+}
+
+@media(max-width:767px) {
+    .fp-result-board_homeTeam {
+        text-align: left;
+        height: auto
+    }
+
+        .fp-result-board_homeTeam .fp-result-board_teamName {
+            width: 100%;
+            text-align: left !important
+        }
+}
+
+@media(max-width:991px) {
+    .fp-result-board_homeTeam {
+        height: auto
+    }
+}
+
+.fp-result-board_homeTeam [class^=ff-image_figureImage] {
+    display: flex;
+    align-items: center;
+    width: auto
+}
+
+.fp-result-board_homeTeam img {
+    padding: 0;
+    max-width: 28px;
+    max-height: 28px
+}
+
+@media(min-width:768px) {
+    .fp-result-board_homeTeam img {
+        max-width: 61px;
+        max-height: 61px
+    }
+}
+@media(min-width:1200px) {
+    .fp-result-board_homeTeam img {
+        max-width: 81px;
+        max-height: 81px
+    }
+}
+/*#endregion */
+
+/*#region fp-result-board_awayTeam*/
+.fp-result-board_awayTeam {
+    display: flex;
+    flex: 1 1;
+    margin-right: auto;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    line-height: 120%;
+    font-family: Open Sans Condensed;
+    margin-bottom: 0;
+    text-transform: uppercase
+}
+@media(min-width:768px) {
+    .fp-result-board_awayTeam {
+        font-size: 32.432px;
+        font-size: 2.027rem
+    }
+}
+@media(min-width:992px) {
+    .fp-result-board_awayTeam {
+        font-size: 41.056px;
+        font-size: 2.566rem
+    }
+}
+@media(max-width:767px) {
+    .fp-result-board_awayTeam, .fp-result-board_awayTeam .fp-result-board_teamName {
+        width: 100%;
+        text-align: right !important
+    }
+}
+.fp-result-board_awayTeam [class^=ff-image_figureImage] {
+    display: flex;
+    align-items: center;
+    width: auto
+}
+.fp-result-board_awayTeam img {
+    padding: 0;
+    max-width: 28px;
+    max-height: 28px
+}
+@media(min-width:768px) {
+    .fp-result-board_awayTeam img {
+        max-width: 61px;
+        max-height: 61px
+    }
+}
+@media(min-width:1200px) {
+    .fp-result-board_awayTeam img {
+        max-width: 81px;
+        max-height: 81px
+    }
+}
+/*#endregion */
+
+/*#region fp-result-board_matchResult*/
+.fp-result-board_matchResult {
+    flex: 0 0 160px;
+    text-align: center;
+    display: flex;
+    flex-direction: column
+}
+@media(max-width:767px) {
+    .fp-result-board_matchResult {
+        flex-basis: 120px
+    }
+}
+@media(max-width:991px) {
+    .fp-result-board_matchResult {
+        flex-basis: 90px
+    }
+}
+/*#endregion */
+
+/*#region fp-result-board_teamName*/
+.fp-result-board_teamName {
+    display: flex;
+    align-items: center
+}
+@media(min-width:768px) {
+    .fp-result-board_teamName {
+        font-size: 1.63rem
+    }
+}
+
+@media(min-width:992px) {
+    .fp-result-board_teamName {
+        font-size: 2.027rem
+    }
+}
+
+@media(min-width:1200px) {
+    .fp-result-board_teamName {
+        font-size: 2.566rem
+    }
+}
+/*#endregion */
+
+.fp-result-board_flagBorder {
+    border: 1px solid #a5acbb
+}
+/*#region fp-result-board_timeRow*/
+.fp-result-board_timeRow {
+    color: var(--theme-color-highlight);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0 !important;
+    left: 50%;
+    top: 0;
+    font-size: 10.24px;
+    font-size: .64rem;
+    line-height: 1.2;
+    line-height: 120%;
+    font-family: Open Sans Condensed;
+    margin-bottom: 2rem;
+    text-transform: none
+}
+@media(min-width:768px) {
+    .fp-result-board_timeRow {
+        font-size: 16px;
+        font-size: 1rem
+    }
+}
+@media(min-width:992px) {
+    .fp-result-board_timeRow {
+        font-size: 20px;
+        font-size: 1.25rem
+    }
+}
+/*#endregion */
+
+
+
+/*#region Define margin and padding for eachsize*/
 .ff-m-0 {
     margin: 0 !important
 }
@@ -727,6 +1193,7 @@
     padding-top: 6rem !important;
     padding-bottom: 6rem !important
 }
+/*#endregion */
 @media(min-width:576px) {
     .ff-m-sm-0 {
         margin: 0 !important
@@ -749,279 +1216,210 @@
     .ff-m-sm-16 {
         margin: 1rem !important
     }
-
     .ff-p-sm-16 {
         padding: 1rem !important
     }
-
     .ff-m-sm-24 {
         margin: 1.5rem !important
     }
-
     .ff-p-sm-24 {
         padding: 1.5rem !important
     }
-
     .ff-m-sm-32 {
         margin: 2rem !important
     }
-
     .ff-p-sm-32 {
         padding: 2rem !important
     }
-
     .ff-m-sm-48 {
         margin: 3rem !important
     }
-
     .ff-p-sm-48 {
         padding: 3rem !important
     }
-
     .ff-m-sm-64 {
         margin: 4rem !important
     }
-
     .ff-p-sm-64 {
         padding: 4rem !important
     }
-
     .ff-m-sm-96 {
         margin: 6rem !important
     }
-
     .ff-p-sm-96 {
         padding: 6rem !important
     }
-
     .ff-mt-sm-0 {
         margin-top: 0 !important
     }
-
     .ff-pt-sm-0 {
         padding-top: 0 !important
     }
-
     .ff-mt-sm-4 {
         margin-top: .25rem !important
     }
-
     .ff-pt-sm-4 {
         padding-top: .25rem !important
     }
-
     .ff-mt-sm-8 {
         margin-top: .5rem !important
     }
-
     .ff-pt-sm-8 {
         padding-top: .5rem !important
     }
-
     .ff-mt-sm-16 {
         margin-top: 1rem !important
     }
-
     .ff-pt-sm-16 {
         padding-top: 1rem !important
     }
-
     .ff-mt-sm-24 {
         margin-top: 1.5rem !important
     }
-
     .ff-pt-sm-24 {
         padding-top: 1.5rem !important
     }
-
     .ff-mt-sm-32 {
         margin-top: 2rem !important
     }
-
     .ff-pt-sm-32 {
         padding-top: 2rem !important
     }
-
     .ff-mt-sm-48 {
         margin-top: 3rem !important
     }
-
     .ff-pt-sm-48 {
         padding-top: 3rem !important
     }
-
     .ff-mt-sm-64 {
         margin-top: 4rem !important
     }
-
     .ff-pt-sm-64 {
         padding-top: 4rem !important
     }
-
     .ff-mt-sm-96 {
         margin-top: 6rem !important
     }
-
     .ff-pt-sm-96 {
         padding-top: 6rem !important
     }
-
     .ff-mb-sm-0 {
         margin-bottom: 0 !important
     }
-
     .ff-pb-sm-0 {
         padding-bottom: 0 !important
     }
-
     .ff-mb-sm-4 {
         margin-bottom: .25rem !important
     }
-
     .ff-pb-sm-4 {
         padding-bottom: .25rem !important
     }
-
     .ff-mb-sm-8 {
         margin-bottom: .5rem !important
     }
-
     .ff-pb-sm-8 {
         padding-bottom: .5rem !important
     }
-
     .ff-mb-sm-16 {
         margin-bottom: 1rem !important
     }
-
     .ff-pb-sm-16 {
         padding-bottom: 1rem !important
     }
-
     .ff-mb-sm-24 {
         margin-bottom: 1.5rem !important
     }
-
     .ff-pb-sm-24 {
         padding-bottom: 1.5rem !important
     }
-
     .ff-mb-sm-32 {
         margin-bottom: 2rem !important
     }
-
     .ff-pb-sm-32 {
         padding-bottom: 2rem !important
     }
-
     .ff-mb-sm-48 {
         margin-bottom: 3rem !important
     }
-
     .ff-pb-sm-48 {
         padding-bottom: 3rem !important
     }
-
     .ff-mb-sm-64 {
         margin-bottom: 4rem !important
     }
-
     .ff-pb-sm-64 {
         padding-bottom: 4rem !important
     }
-
     .ff-mb-sm-96 {
         margin-bottom: 6rem !important
     }
-
     .ff-pb-sm-96 {
         padding-bottom: 6rem !important
     }
-
     .ff-ml-sm-0 {
         margin-left: 0 !important
     }
-
     .ff-pl-sm-0 {
         padding-left: 0 !important
     }
-
     .ff-ml-sm-4 {
         margin-left: .25rem !important
     }
-
     .ff-pl-sm-4 {
         padding-left: .25rem !important
     }
-
     .ff-ml-sm-8 {
         margin-left: .5rem !important
     }
-
     .ff-pl-sm-8 {
         padding-left: .5rem !important
     }
-
     .ff-ml-sm-16 {
         margin-left: 1rem !important
     }
-
     .ff-pl-sm-16 {
         padding-left: 1rem !important
     }
-
     .ff-ml-sm-24 {
         margin-left: 1.5rem !important
     }
-
     .ff-pl-sm-24 {
         padding-left: 1.5rem !important
     }
-
     .ff-ml-sm-32 {
         margin-left: 2rem !important
     }
-
     .ff-pl-sm-32 {
         padding-left: 2rem !important
     }
-
     .ff-ml-sm-48 {
         margin-left: 3rem !important
     }
-
     .ff-pl-sm-48 {
         padding-left: 3rem !important
     }
-
     .ff-ml-sm-64 {
         margin-left: 4rem !important
     }
-
     .ff-pl-sm-64 {
         padding-left: 4rem !important
     }
-
     .ff-ml-sm-96 {
         margin-left: 6rem !important
     }
-
     .ff-pl-sm-96 {
         padding-left: 6rem !important
     }
-
     .ff-mr-sm-0 {
         margin-right: 0 !important
     }
-
     .ff-pr-sm-0 {
         padding-right: 0 !important
     }
-
     .ff-mr-sm-4 {
         margin-right: .25rem !important
     }
-
     .ff-pr-sm-4 {
         padding-right: .25rem !important
     }
@@ -2719,7 +3117,6 @@
         margin-top: .5rem !important;
         margin-bottom: .5rem !important
     }
-
     .ff-py-xl-8 {
         padding-top: .5rem !important;
         padding-bottom: .5rem !important
@@ -2729,7 +3126,6 @@
         margin-top: 1rem !important;
         margin-bottom: 1rem !important
     }
-
     .ff-py-xl-16 {
         padding-top: 1rem !important;
         padding-bottom: 1rem !important

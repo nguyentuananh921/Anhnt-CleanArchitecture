@@ -1,97 +1,140 @@
-﻿@model IEnumerable<MatchViewModel>
+﻿@model WebMVC.Models.MatchViewModel
+
 @{
-    ViewData["Title"] = "View All Match";
+    ViewData["Title"] = "Update Specific Match";
 }
 
-<h3>View All Match</h3>
+Temp save for update match Score
+<h1>Update Match Score</h1>
+<h4>Specific Match View</h4>
+<hr />
+<div>
+    <div class="fp-result-board_resultBoard">
+        <div class="fp-result-board_resultBoardContainer">
+            <div class="col ">
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
 <div class="row">
-    <!-- Text input-->
-    <div class="row form-group">
-        <div class="col-md-5 col-md-offset-3">
-            <input id="homeTeamName" name="homeTeamName" type="text" placeholder="The home team's name" class="form-control input-md">
-        </div>
-        <div class="col-md-2">
-            <h1 class="text-center">VS</h1>
-        </div>
-        <div class="col-md-5 col-md-offset-3">
-            <input id="textinput" name="homeTeamScore" type="text" placeholder="The home team's score" class="form-control input-md">
-        </div>
+    <div class="col-md-4">
+        <form asp-action="UpdateMatchScore">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MatchId" class="control-label"></label>
+                <input asp-for="MatchId" class="form-control" />
+                <span asp-validation-for="MatchId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchNumber" class="control-label"></label>
+                <input asp-for="MatchNumber" class="form-control" />
+                <span asp-validation-for="MatchNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateMatch" class="control-label"></label>
+                <input asp-for="DateMatch" class="form-control" />
+                <span asp-validation-for="DateMatch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimeMatch" class="control-label"></label>
+                <input asp-for="TimeMatch" class="form-control" />
+                <span asp-validation-for="TimeMatch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchYear" class="control-label"></label>
+                @*<input asp-for="MatchYear" class="form-control" />*@
+                <span asp-validation-for="MatchYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeasonId" class="control-label"></label>
+                <input asp-for="SeasonId" class="form-control" />
+                <span asp-validation-for="SeasonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SeasonName" class="control-label"></label>
+                <input asp-for="SeasonName" class="form-control" />
+                <span asp-validation-for="SeasonName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Round" class="control-label"></label>
+                <input asp-for="Round" class="form-control" />
+                <span asp-validation-for="Round" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stage" class="control-label"></label>
+                <input asp-for="Stage" class="form-control" />
+                <span asp-validation-for="Stage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubStage" class="control-label"></label>
+                <input asp-for="SubStage" class="form-control" />
+                <span asp-validation-for="SubStage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HTeam" class="control-label"></label>
+                <input asp-for="HTeam" class="form-control" />
+                <span asp-validation-for="HTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HTeamCode" class="control-label"></label>
+                <input asp-for="HTeamCode" class="form-control" />
+                <span asp-validation-for="HTeamCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HGoal" class="control-label"></label>
+                <input asp-for="HGoal" class="form-control" />
+                <span asp-validation-for="HGoal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GGoal" class="control-label"></label>
+                <input asp-for="GGoal" class="form-control" />
+                <span asp-validation-for="GGoal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GTeam" class="control-label"></label>
+                <input asp-for="GTeam" class="form-control" />
+                <span asp-validation-for="GTeam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GTeamCode" class="control-label"></label>
+                <input asp-for="GTeamCode" class="form-control" />
+                <span asp-validation-for="GTeamCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WinNote" class="control-label"></label>
+                <input asp-for="WinNote" class="form-control" />
+                <span asp-validation-for="WinNote" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Stadium" class="control-label"></label>
+                <input asp-for="Stadium" class="form-control" />
+                <span asp-validation-for="Stadium" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Referee" class="control-label"></label>
+                <input asp-for="Referee" class="form-control" />
+                <span asp-validation-for="Referee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Visistors" class="control-label"></label>
+                <input asp-for="Visistors" class="form-control" />
+                <span asp-validation-for="Visistors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
 </div>
 <div>
-    @foreach (var item in Model)
-    {
-        string hflag = "/img/Team/120x80/" + @item.HTeamCode + ".gif";
-        string gflag = "/img/Team/120x80/" + @item.GTeamCode + ".gif";
-        string seasonflag = "/img/Season/" + @item.SeasonId + ".png";
-        <div class="row fp-match-overview_matchRow justify-content-between d-flex">
-            <div>
-                <div class="justify-content-between d-flex">
-                    <div class="d-none d-md-inline col fp-match-overview_tournamentDetails">
-                        <ul class="fp-match-overview_matchInfoList">
-                            <li class="fp-match-overview_matchInfoListDate">
-                                @String.Format("{0:dd/MM/yyyy}", item.DateMatch)
-                            </li>
-                            <li>
-                                @item.Stadium
-                            </li>
-                            <li>
-                                @item.SubStage
-                            </li>
-                        </ul>
-                    </div>
-                    <h4 class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
-                        <a asp-action="ViewMatchBySeason" asp-route-seasonId="@item.SeasonId">@item.SeasonName</a>
-                    </h4>
-                    <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
-                        <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                            <a asp-action="ViewMatchBySeason" asp-route-seasonId="@item.SeasonId">
-                                <img alt="" aria-hidden="true" role="presentation" src="@seasonflag" asp-append-version="true" />
-                            </a>
-                        </div>
-                    </div>
-                    <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
-                        <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.HTeam">@item.HTeamCode</a>
-                    </h4>
-                    <h4 class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
-                        <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.HTeam">@item.HTeam</a>
-                    </h4>
-                    <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
-                        <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                            <img alt="" aria-hidden="true" role="presentation" src="@hflag" asp-append-version="true" />
-                        </div>
-                        <div class="ff-match-results_concludedMatchResults ff-match-results_results ff-mx--md-24 ff-mx-lg-32 ff-mx-8 d-flex justify-content-center align-items-center">
-                            <h4 class="h4-article">
-                                <a asp-action="ViewHistory" asp-route-hteam="@item.HTeam" asp-route-gteam="@item.GTeam">
-                                    @item.HGoal-@item.GGoal
-                                </a>
-                            </h4>
-                        </div>
-                        <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                            <img alt="" aria-hidden="true" role="presentation" src="@gflag" asp-append-version="true" />
-                        </div>
-                    </div>
-                    <h4 class="d-inline d-md-none col fp-match-overview_awayTeam">
-                        <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.GTeam">@item.GTeamCode</a>
-                    </h4>
-                    <h4 class="d-none d-md-inline col fp-match-overview_awayTeam h4-article">
-                        <a asp-action="ViewMatchByTeam" asp-route-teamname="@item.GTeam">@item.GTeam</a>
-                    </h4>
-                </div>
-            </div>
-            <div>
-                @if (item.WinNote != "")
-                {
-                    <div class="fp-match-overview_extraInfo">
-                        <p>@item.WinNote</p>
-                    </div>
-                }
-                else
-                {
-                }
-            </div>
-        </div>
-    }
+    <a asp-action="Index">Back to List</a>
 </div>
-
 

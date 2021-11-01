@@ -286,7 +286,7 @@ namespace Infrastructure.Repositories
             return retList;
         }
 
-        public MatchesDetailById GetMatchDetailByMatchStrId(string matchid)
+        public MatchesDetailByStrId GetMatchDetailByMatchStrId(string matchid)
         {
             #region TryOther way
             var matchQuery = (from match in _context.Matches
@@ -320,12 +320,36 @@ namespace Infrastructure.Repositories
                                   match.Visistors
                                   #endregion
                               });
+
+            
+            var matchResult = matchQuery.FirstOrDefault();
+            MatchesDetailByStrId matchesDetailByStrId = new MatchesDetailByStrId();
             #region ManualMapping
-            MatchesDetailById matchesDetail = matchQuery.Cast<MatchesDetailById>().FirstOrDefault();            
+            matchesDetailByStrId.MatchId = matchResult.MatchId;
+                matchesDetailByStrId.MatchId = matchResult.MatchId;
+                matchesDetailByStrId.MatchNumber = matchResult.MatchNumber;
+                matchesDetailByStrId.DateMatch = matchResult.DateMatch;
+                matchesDetailByStrId.TimeMatch = matchResult.TimeMatch;
+                matchesDetailByStrId.MatchYear = matchResult.MatchYear;
+                matchesDetailByStrId.SeasonId = matchResult.SeasonId;
+                matchesDetailByStrId.SeasonName = matchResult.SeasonName;
+                matchesDetailByStrId.Round = matchResult.Round;
+                matchesDetailByStrId.Stage = matchResult.Stage;
+                matchesDetailByStrId.SubStage = matchResult.SubStage;
+                matchesDetailByStrId.HTeam = matchResult.HTeam;
+                matchesDetailByStrId.HGoal = matchResult.HGoal;
+                matchesDetailByStrId.HTeamCode = matchResult.HTeamCode;
+                matchesDetailByStrId.GGoal = matchResult.GGoal;
+                matchesDetailByStrId.GTeam = matchResult.GTeam;
+                matchesDetailByStrId.GTeamCode = matchResult.GTeamCode;
+                matchesDetailByStrId.WinNote = matchResult.WinNote;
+                matchesDetailByStrId.Stadium = matchResult.Stadium;
+                matchesDetailByStrId.Referee = matchResult.Referee;
+                matchesDetailByStrId.Visistors = matchResult.Visistors;                       
             #endregion
             
             #endregion
-            return matchesDetail;
-        }
+            return matchesDetailByStrId;
+        }        
     }
 }

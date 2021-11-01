@@ -2,148 +2,123 @@
 <html lang="en">
 <head>
     <!-- Theme style bootstrap 5.1 -->
-    <link href="../../wwwroot/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../../wwwroot/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <!-- Save the needed style in fifa folder css to this style sheet -->
-    <link href="../../wwwroot/css/match/match.css" rel="stylesheet" />    
+    <link href="../../../wwwroot/css/match/match.css" rel="stylesheet" />    
 </head>
-<body>    
-    <div id="__next">
+<body>
+    <div class="container-fluid">
         <div>
-            <div class="row fp-match-overview_matchRow justify-content-between d-flex">
-                <div class="d-none d-md-inline col fp-match-overview_tournamentDetails">
-                    <ul class="fp-match-overview_matchInfoList">
-                        <li class="fp-match-overview_matchInfoListDate">
-                            14. Jun - 22:00
+            Match row only here
+            <a>
+                <div class="row fp-match-overview_matchRow justify-content-between d-flex">
+                    <div class="d-none d-md-inline col fp-match-overview_tournamentDetails">
+                        <ul class="fp-match-overview_matchInfoList">
+                            <li class="fp-match-overview_matchInfoListDate">
+                                30. Jun - 21:00
+                            </li>
+                            <li>
+                                Kazan Arena
+                            </li>
+                            <li>
+                                Group A
+                            </li>
+                        </ul>
+                    </div>
+                    <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
+                        FRA
+                    </h4>
+                    <h4 class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
+                        France
+                    </h4>
+                    <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
+                        <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
+                            <img alt="" aria-hidden="true" role="presentation" src="../../../wwwroot/img/Team/120x80/FRA.gif" asp-append-version="true" />
+                        </div>
+                        <div class="ff-match-results_concludedMatchResults ff-match-results_results ff-mx--md-24 ff-mx-lg-32 ff-mx-8 d-flex justify-content-center align-items-center">
+                            <h4 class="h4-article">
+                                4-3
+                            </h4>
+                        </div>
+                        <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
+                            <img alt="" aria-hidden="true" role="presentation" src="../../../wwwroot/img/Team/120x80/ARG.gif" asp-append-version="true" />
+                        </div>
+                    </div>
+                    <h4 class="d-inline d-md-none col fp-match-overview_awayTeam">
+                        ARG
+                    </h4>
+                    <h4 class="d-none d-md-inline col fp-match-overview_awayTeam h4-article">
+                        Argentina
+                    </h4>
+                </div>
+            </a>
+            <a>
+                <div class="row fp-match-overview_matchRow justify-content-between d-flex">
+                    <div class="d-none d-md-inline col fp-match-overview_tournamentDetails">
+                        <ul class="fp-match-overview_matchInfoList">
+                            <li class="fp-match-overview_matchInfoList">
+                                1. Jul - 21:00
+                            </li>
+                            <li>
+                                Luzhniki Stadium
+                            </li>
+                        </ul>
+                    </div>
+                    <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
+                        ESP
+                    </h4>
+                    <div class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
+                        Spain
+                    </div>
+                    <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
+                        <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
+                            <img alt="" aria-hidden="true" role="presentation" src="../../../wwwroot/img/Team/120x80/ESP.gif" asp-append-version="true" />
+                        </div>
+                        <div class="ff-match-results_concludedMatchResults ff-match-results_results ff-mx--md-24 ff-mx-lg-32 ff-mx-8 d-flex justify-content-center align-items-center">
+                            <h4 class="h4-article">
+                                1-1
+                            </h4>
+                        </div>
+                        <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
+                            <img alt="" aria-hidden="true" role="presentation" src="../../../wwwroot/img/Team/120x80/RUS.gif" asp-append-version="true" />
+                        </div>
+                    </div>
+                    <h4 class="d-inline d-md-none col fp-match-overview_awayTeam">
+                        RUS
+                    </h4>
+                    <div class="d-none d-md-inline col fp-match-overview_awayTeam h4-article">
+                        Russia
+                    </div>
+                </div>
+                <div class="col-auto d-flex align-items-center" role="group">
+
+                    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                        <li>
+                            <a class="dropdown-item" asp-action="UpdateMatchScore" asp-route-matchId="@item.MatchId.ToString()">
+                                <i class="fas fa-futbol"></i> Update Score
+                            </a>
                         </li>
                         <li>
-                            Luzhniki Stadium
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-wrench"></i> Update Betting
+                            </a>
                         </li>
                         <li>
-                            Group A
+                            <a class="dropdown-item" href="#">
+                                <i class="fas fa-pencil-alt"></i> Edit Bet
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
-                    RUS
-                </h4>
-                <h4 class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
-                    Russia
-                </h4>
-                <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                    <div style="display:inline-block;max-width:100%;overflow:hidden;position:relative;box-sizing:border-box;margin:0px;">
-                        <div style="box-sizing: border-box; display: block; max-width: 100%;">
-                            <img alt="" aria-hidden="true" role="presentation" src="../../wwwroot/img/Team/120x80/RUS.gif" style="max-width:100%;display:block;margin:0px;border:none;padding:0px" asp-append-version="true" />
-                        </div>
-                    </div>
+                <div class="row fp-match-overview_matchRow fp-match-overview_extraInfo">
+                    <p>Russia win 3 - 4 on penalties</p>
                 </div>
-                <div class="ff-match-results_concludedMatchResults ff-match-results_results">
-                    <h4 class="h4-article">
-                        5-0
-                    </h4>
-                </div>
-                <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                    <div style="display:inline-block;max-width:100%;overflow:hidden;position:relative;box-sizing:border-box;margin:0px;">
-                        <div style="box-sizing: border-box; display: block; max-width: 100%;">
-                            <img alt="" aria-hidden="true" role="presentation" src="../../wwwroot/img/Team/120x80/KSA.gif" style="max-width:100%;display:block;margin:0px;border:none;padding:0px" asp-append-version="true" />
-                        </div>
-                    </div>
-                </div>
-                <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
-                    KSA
-                </h4>
-                <h4 class="d-none d-md-inline col fp-match-overview_awayTeam h4-article">
-                    Saudi Arabia
-                </h4>
-            </div>
-            <div>
-                Match row only here
-                <a>
-                    <div class="row fp-match-overview_matchRow justify-content-between d-flex">
-                        <div class="d-none d-md-inline col fp-match-overview_tournamentDetails">
-                            <ul class="fp-match-overview_matchInfoList">
-                                <li class="fp-match-overview_matchInfoListDate">
-                                    30. Jun - 21:00
-                                </li>
-                                <li>
-                                    Kazan Arena
-                                </li>
-                                <li>
-                                    Group A
-                                </li>
-                            </ul>
-                        </div>
-                        <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
-                            FRA
-                        </h4>
-                        <h4 class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
-                            France
-                        </h4>
-                        <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
-                            <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                                <img alt="" aria-hidden="true" role="presentation" src="../../wwwroot/img/Team/120x80/FRA.gif" asp-append-version="true"/>   
-                            </div>
-                            <div class="ff-match-results_concludedMatchResults ff-match-results_results ff-mx--md-24 ff-mx-lg-32 ff-mx-8 d-flex justify-content-center align-items-center">
-                                <h4 class="h4-article">
-                                    4-3
-                                </h4>
-                            </div>
-                            <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                                <img alt="" aria-hidden="true" role="presentation" src="../../wwwroot/img/Team/120x80/ARG.gif" asp-append-version="true" />                                
-                            </div>
-                        </div>
-                        <h4 class="d-inline d-md-none col fp-match-overview_awayTeam">
-                            ARG
-                        </h4>
-                        <h4 class="d-none d-md-inline col fp-match-overview_awayTeam h4-article">
-                            Argentina
-                        </h4>
-                    </div>
-                </a>
-                <a>
-                    <div class="row fp-match-overview_matchRow justify-content-between d-flex">
-                        <div class="d-none d-md-inline col fp-match-overview_tournamentDetails">
-                            <ul class="fp-match-overview_matchInfoList">                                
-                                <li class="fp-match-overview_matchInfoList">
-                                    1. Jul - 21:00
-                                </li>
-                                <li>
-                                    Luzhniki Stadium
-                                </li>
-                            </ul>
-                        </div>
-                        <h4 class="d-inline d-md-none col fp-match-overview_homeTeam">
-                            ESP
-                        </h4>
-                        <div class="d-none d-md-inline col fp-match-overview_homeTeam h4-article">
-                            Spain
-                        </div>
-                        <div class="col-auto d-flex align-items-center fp-match-overview_centerItems ff-mx-md-24 ff-mx-lg-32 ff-mx-sm-8">
-                            <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                                <img alt="" aria-hidden="true" role="presentation" src="../../wwwroot/img/Team/120x80/ESP.gif" asp-append-version="true" />                                
-                            </div>
-                            <div class="ff-match-results_concludedMatchResults ff-match-results_results ff-mx--md-24 ff-mx-lg-32 ff-mx-8 d-flex justify-content-center align-items-center">
-                                <h4 class="h4-article">
-                                    1-1
-                                </h4>
-                            </div>
-                            <div class="fp-match-overview_logo d-flex align-items-center justify-content-center fp-match-overview_nationalTeam">
-                                <img alt="" aria-hidden="true" role="presentation" src="../../wwwroot/img/Team/120x80/RUS.gif" asp-append-version="true" />                                
-                            </div>
-                        </div>
-                        <h4 class="d-inline d-md-none col fp-match-overview_awayTeam">
-                            RUS
-                        </h4>
-                        <div class="d-none d-md-inline col fp-match-overview_awayTeam h4-article">
-                            Russia
-                        </div>
-                    </div>
-                    <div class="row fp-match-overview_matchRow fp-match-overview_extraInfo">
-                        <p>Russia win 3 - 4 on penalties</p>
-                    </div>
-                </a>
-            </div>
+            </a>
         </div>
-    </div>
+    </div>   
    
 </body>
 </html>
